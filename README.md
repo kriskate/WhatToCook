@@ -30,4 +30,4 @@
 
 This application has not been deployed to the Google Playstore or Apple Store.
 
-You can find a snapshot of the Android version in the release page
+You can find a snapshot of the Android version in the ![release page](https://github.com/kriskate/WhatToCook/releases)

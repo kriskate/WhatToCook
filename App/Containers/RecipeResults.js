@@ -16,7 +16,8 @@ import AlertMessage from '../Components/AlertMessage'
 import styles from './Styles/RecipeResultsStyle'
 
 const MSG_ERROR = 'An error occured while trying to retrieve the recipe. Please try again later',
-      MSG_RETRIEVING = 'Retrieving recipes. Please wait'
+      MSG_RETRIEVING = 'Retrieving recipes. Please wait',
+      MSG_NORECIPES = 'No recipes found for the selected ingredients'
 
 class RecipeResults extends React.Component {
 
@@ -58,10 +59,6 @@ class RecipeResults extends React.Component {
     return ( <Result data={rowData} /> )
   }
 
-  _noRowData () {
-    return this.state && this.state.dataSource.getRowCount() === 0
-  }
-
   // Render a footer.
   _renderFooter = () => {
     return (
@@ -69,10 +66,18 @@ class RecipeResults extends React.Component {
     )
   }
 
+
+  _checkData () {
+      if(this.state){
+        if(this.props.isError){ return MSG_ERROR } if(this.state.dataSource.getRowCount() === 0){ return MSG_NORECIPES }
+        else{ return null }
+      } else{ return MSG_RETRIEVING }
+  }
   render () {
+    let msg = this._checkData()
     return (
       <View style={styles.container}>
-        <AlertMessage title={this.props.isError ? MSG_ERROR : MSG_RETRIEVING } show={this._noRowData()} />
+        <AlertMessage title={msg} show={msg} />
         {
         this.props.isError || this.props.fetching || !this.state || !this.state.dataSource ? null :
           <ListView

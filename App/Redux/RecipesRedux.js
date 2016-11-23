@@ -48,10 +48,8 @@ export const excluded = (state, { ingredients_excluded }) =>
   state.merge({ ingredients_excluded })
 
 // request the data from an api
-export const request = (state, { data }) => {
-  console.log('request',state, data)
-  return state.merge({ fetching: true, data, payload: null })
-}
+export const request = (state, { data }) =>
+  state.merge({ fetching: true, data, payload: null })
 
 // successful api lookup
 export const success = (state, action) => {

@@ -8,7 +8,6 @@ export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     recipes: require('./RecipesRedux').reducer,
-  //  temperature: require('./TemperatureRedux').reducer,
     //login: require('./LoginRedux').reducer
   })
 

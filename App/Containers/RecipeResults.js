@@ -61,12 +61,13 @@ class RecipeResults extends React.Component {
 
 
   _checkData () {
-      if(this.state){
-        if(this.props.isError){ return MSG_ERROR } if(this.state.dataSource.getRowCount() === 0){ return MSG_NORECIPES }
-        else{ return null }
-      } else{ return MSG_RETRIEVING }
+    if(this.props.isError){ return MSG_ERROR }
+    if(this.state){
+      if(this.state.dataSource.getRowCount() === 0){ return MSG_NORECIPES }
+      else{ return null }
+    } else{ return MSG_RETRIEVING }
   }
-  
+
   render () {
     let msg = this._checkData()
     return (

@@ -18,10 +18,12 @@
 
 
 **Results:**
+
 ![page_main](readmeImages/page_results.png)
 
 
 **When results are not found:**
+
 ![page_main](readmeImages/page_resultsNotFound.png)
 
 

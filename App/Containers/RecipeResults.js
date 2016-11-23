@@ -59,13 +59,6 @@ class RecipeResults extends React.Component {
     return ( <Result data={rowData} /> )
   }
 
-  // Render a footer.
-  _renderFooter = () => {
-    return (
-      <Text> - Footer - </Text>
-    )
-  }
-
 
   _checkData () {
       if(this.state){
@@ -73,6 +66,7 @@ class RecipeResults extends React.Component {
         else{ return null }
       } else{ return MSG_RETRIEVING }
   }
+  
   render () {
     let msg = this._checkData()
     return (
@@ -84,7 +78,6 @@ class RecipeResults extends React.Component {
             contentContainerStyle={styles.listContent}
             dataSource={this.state.dataSource}
             renderRow={this._renderRow}
-            renderFooter={this._renderFooter}
             enableEmptySections
             pageSize={15}
           />

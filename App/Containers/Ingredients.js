@@ -3,7 +3,6 @@
 import React, { PropTypes } from 'react'
 import { TouchableOpacity, View, Text, ListView } from 'react-native'
 import { connect } from 'react-redux'
-// import { Actions as NavigationActions } from 'react-native-router-flux'
 import RecipesActions from '../Redux/RecipesRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
@@ -30,7 +29,6 @@ class Ingredients extends React.Component {
   _generateData (selected) {
     let arr_ingredients =
       'egg,sugar,salt,lettuce,onion,carrot,pepper,broccoli,cauliflower,cucumber,tomato,chicken,pork,fish,lamb,turkey,avocado,corn,parsnip,mushrooms,cabbage,chili,garlic,flour,pasta,courget,zucchini,sprouts,butter,peas,beans,lentils,chickpeas,celery,aubergine,potato,rice,couscous,buttermilk,cream,milk,spinach'.split(',').sort()
-    //arr_ingredients = ['egg','sugar','salt']
 
     let dataObjects = arr_ingredients.map((ingredient) => {
       return {
@@ -38,7 +36,6 @@ class Ingredients extends React.Component {
       }
     })
 
-    // If you need scroll to bottom, consider http://bit.ly/2bMQ2BZ
     const rowHasChanged = (r1, r2) => r1 !== r2
 
     const ds = new ListView.DataSource({rowHasChanged})
@@ -60,28 +57,13 @@ class Ingredients extends React.Component {
     )
   }
 
-  // Used for friendly AlertMessage
-  // returns true if the dataSource is empty
-  _noRowData () {
-    return this.state.dataSource.getRowCount() === 0
-  }
-
-  // Render a footer.
-  _renderFooter = () => {
-    return (
-      <Text> - Footer - </Text>
-    )
-  }
-
   render () {
     return (
       <View style={styles.container}>
-        <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow.bind(this)}
-          renderFooter={this._renderFooter}
           enableEmptySections
           pageSize={15}
         />

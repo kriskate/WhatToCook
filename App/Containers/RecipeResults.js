@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react'
 import { View, Text, ListView } from 'react-native'
 import { connect } from 'react-redux'
 import RecipesActions from '../Redux/RecipesRedux'
+import Config from 'react-native-config'
 
 import Result from '../Components/Result'
 
@@ -30,8 +31,7 @@ class RecipeResults extends React.Component {
 
     const { fetched, error } = this.props
 
-    const dev_key = '5b17915c779541a046758363a174ce36'
-    fetch(`http://food2fork.com/api/search?key=${dev_key}&q=` + this.props.ingredients_selected.join(','))
+    fetch(`http://food2fork.com/api/search?key=${Config.API_KEY}&q=` + this.props.ingredients_selected.join(','))
       .then(function(response){
         return response.text()
       })

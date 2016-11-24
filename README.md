@@ -10,25 +10,13 @@
 * recipes API: [Food2fork](http://food2fork.com)
 * platform: Android & IOS
 
-## :arrow_forward: Screenshots:
+## &#8594; Screenshots:
 
-**Main:**
-
-![page_main](readmeImages/page_main.png)
-
-
-**Results:**
-
-![page_main](readmeImages/page_results.png)
-
-
-**When results are not found:**
-
-![page_main](readmeImages/page_resultsNotFound.png)
+![page_main](readmeImages/page_main.png) ![page_main](readmeImages/page_results.png) ![page_main](readmeImages/page_resultsNotFound.png)
 
 
 
-## :arrow_forward: Notes:
+## &#8594; Notes:
 
 This application has not been deployed to the Google Playstore or Apple Store.
 

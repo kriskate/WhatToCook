@@ -4,20 +4,14 @@ import React from 'react'
 import { Images } from '../Themes'
 import { ScrollView, Text, Image, View, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
-import { Metrics } from '../Themes'
 import RoundedButton from '../Components/RoundedButton'
-// external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import RecipesActions from '../Redux/RecipesRedux'
 
-// Styles
 import styles from './Styles/MainStyle'
 
-// I18n
 import I18n from 'react-native-i18n'
 
 import Ingredients from './Ingredients'

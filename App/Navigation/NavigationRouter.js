@@ -10,6 +10,7 @@ import CustomNavBar from '../Components/CustomNavBar'
 // screens identified by the router
 import Main from '../Containers/Main'
 import RecipeResults from '../Containers/RecipeResults'
+import RecipeDetails from '../Containers/RecipeDetails'
 import LoginScreen from '../Containers/LoginScreen'
 
 import I18n from 'react-native-i18n'
@@ -26,6 +27,8 @@ class NavigationRouter extends Component {
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
           <Scene initial key='main' component={Main} title={I18n.t('whattocook')} renderLeftButton={NavItems.hamburgerButton} />
           <Scene key='recipeResults' component={RecipeResults} title={I18n.t('recipeResults')} />
+          <Scene key='recipeDetails' component={RecipeDetails} title={I18n.t('recipeDetails')} />
+
           {/* title='Device Info' navBar={CustomNavBar} />*/}
           </Scene>
         </Scene>

@@ -4,6 +4,8 @@ import React, { PropTypes } from 'react'
 import { View, Text, ListView } from 'react-native'
 import { connect } from 'react-redux'
 import RecipesActions from '../Redux/RecipesRedux'
+import RecipeDetailsActions from '../Redux/RecipeDetailsRedux'
+import { Actions as NavigationActions } from 'react-native-router-flux'
 import Config from 'react-native-config'
 
 import Result from '../Components/Result'
@@ -30,7 +32,6 @@ class RecipeResults extends React.Component {
     super(props)
 
     const { fetched, error } = this.props
-
     fetch(`http://food2fork.com/api/search?key=${Config.API_KEY}&q=` + this.props.ingredients_selected.join(','))
       .then(function(response){
         return response.text()
@@ -55,10 +56,6 @@ class RecipeResults extends React.Component {
     }
   }
 
-  _renderRow (rowData) {
-    return ( <Result data={rowData} /> )
-  }
-
 
   _checkData () {
     if(this.props.isError){ return MSG_ERROR }
@@ -70,18 +67,22 @@ class RecipeResults extends React.Component {
 
   render () {
     let msg = this._checkData()
+
     return (
       <View style={styles.container}>
         <AlertMessage title={msg} show={msg} />
         {
         this.props.isError || this.props.fetching || !this.state || !this.state.dataSource ? null :
-          <ListView
-            contentContainerStyle={styles.listContent}
-            dataSource={this.state.dataSource}
-            renderRow={this._renderRow}
-            enableEmptySections
-            pageSize={15}
-          />
+          <View>
+            <ListView
+              contentContainerStyle={styles.listContent}
+              dataSource={this.state.dataSource}
+              renderRow={(rowData) => <Result data={rowData} getRecipeDetails={this.props.getRecipeDetails} />}
+              enableEmptySections
+              pageSize={15}
+            />
+            <Text>Powered By Food2Fork.com</Text>
+          </View>
         }
       </View>
     )
@@ -93,6 +94,7 @@ const mapStateToProps = (state) => {
     recipes: state.recipes.payload && state.recipes.payload.recipes ? state.recipes.payload.recipes : null,
     fetching: state.recipes.fetching,
     isError: state.recipes.error,
+
     ingredients_selected: state.recipes.ingredients_selected.asMutable(),
   }
 }
@@ -102,6 +104,11 @@ const mapDispatchToProps = (dispatch) => {
     // fetch is handled in Main.js
     fetched: (payload) => dispatch(RecipesActions.recipesSuccess(payload)),
     error: (payload) => dispatch(RecipesActions.recipesFailure(payload)),
+
+    getRecipeDetails: (recipe_id) => {
+      dispatch(RecipeDetailsActions.recipeDetailsRequest(recipe_id))
+      NavigationActions.recipeDetails(recipe_id)
+    },
   }
 }
 

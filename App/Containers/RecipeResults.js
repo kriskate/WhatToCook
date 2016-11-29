@@ -106,7 +106,6 @@ const mapDispatchToProps = (dispatch) => {
     error: (payload) => dispatch(RecipesActions.recipesFailure(payload)),
 
     getRecipeDetails: (recipe_id) => {
-      dispatch(RecipeDetailsActions.recipeDetailsRequest(recipe_id))
       NavigationActions.recipeDetails(recipe_id)
     },
   }

@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(RecipesActions.recipesRequest(null))
       NavigationActions.recipeResults()
       // used for easier testing
-      //NavigationActions.recipeDetails()
+      //NavigationActions.recipeDetails("47024")
     }
   }
 }

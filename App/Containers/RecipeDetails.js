@@ -7,60 +7,26 @@ import styles from './Styles/RecipeDetailsStyle'
 import Config from 'react-native-config'
 import RecipeDetailsActions from '../Redux/RecipeDetailsRedux'
 
-let recipeBody
-let testState = {
-  f2f_url:"http://food2fork.com/view/47024",
-  image_url:"http://static.food2fork.com/icedcoffee5766.jpg",
-  ingredients:["my ingredient","1 pound Ground Coffee (good, Rich Roast)","8 quarts Cold Water","Half-and-half (healthy Splash Per Serving)","Sweetened Condensed Milk (2-3 Tablespoons Per Serving)","Note: Can Use Skim Milk, 2% Milk, Whole Milk, Sugar, Artificial Sweeteners, Syrups...adapt To Your Liking!"],
-  publisher:"The Pioneer Woman",
-  publisher_url:"http://thepioneerwoman.com",
-  recipe_id:"47024",
-  social_rank:100,
-  source_url:"http://thepioneerwoman.com/cooking/2011/06/perfect-iced-coffee/",
-  title: "Perfect Iced Coffee",
-}
 class RecipeDetails extends React.Component {
-  state: {
-    f2f_url:"",
-    image_url: "",
-    ingredients: [],
-    publisher:"",
-    publisher_url:"",
-    recipe_id:0,
-    social_rank:0,
-    source_url:"",
-    title:"",
+  componentWillMount () {
+    this.getDetails(this.props.data)
   }
-  constructor(props){
-    super(props)
-    this.state = null
-    //setTimeout(() => this.parseRecipe(testState)); return
-    // called here for initialization, componentWillReceiveProps is not called
-    this.getDetails(props.data)
-  }
-
   componentWillReceiveProps (newProps){
-    console.log(newProps.recipeDetails == this.props.recipeDetails)
-    console.log(newProps.data == this.props.data)
-    if(newProps.recipeDetails != this.props.recipeDetails)
-      return true
-
-    if(newProps.data == this.props.data){
-      this.props.recipeDetailsSuccess(this.props.data)
-      return false
-    }else{
-      this.getDetails(newProps.data)
-      return true
-    }
+    // this component will be reinstantiated by react-native-router-flux after a short delay, so if the user click another recipe in that timespan, the same instance will be in place, but it actually needs to change
+    if(newProps.data !== this.props.data) this.getDetails(newProps.data)
+    return true
   }
 
   getDetails (data){
+    this.props.getRecipeDetails(data)
+      // this is used for testing purposes
+    //setTimeout(() => this.props.recipeDetailsSuccess(testState)); return
     fetch(`http://food2fork.com/api/get?key=${Config.API_KEY}&rId=${data}`)
       .then(function(response){
         return response.json()
       })
-      .then((data) => {
-        this.props.recipeDetailsSuccess(data)
+      .then((payload) => {
+        this.props.recipeDetailsSuccess(payload)
       })
       .catch(function(err){
         error(err)
@@ -68,10 +34,11 @@ class RecipeDetails extends React.Component {
   }
 
   render () {
-    let { recipeDetails } = this.props
+    let { recipeDetails, fetching } = this.props
     return (
-      !recipeDetails ? <View style={styles.container}/> :
+      fetching || !recipeDetails ? <View style={styles.container}/> :
       <View style={styles.container}>
+        <AlertMessage title={msg} show={msg} />
         <Image
           style={styles.recipeImage}
           source={{uri: recipeDetails.image_url}}
@@ -94,15 +61,21 @@ class RecipeDetails extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  let { fetching, error, payload, data } = state.recipeDetails
   return {
-    recipeDetails: state.recipeDetails.payload && state.recipeDetails.payload.recipe ? state.recipeDetails.payload.recipe : null,
-
-    recipeData: state.recipeDetails.data,
+    recipeDetails: (payload && payload.recipe) ? payload.recipe : null,
+    fetching, error, payload,
+    recipeData: data,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    recipeDetailsSuccess: (data) => dispatch(RecipeDetailsActions.recipeDetailsSuccess(data))
+    getRecipeDetails: (recipe_id) =>
+      dispatch(RecipeDetailsActions.recipeDetailsRequest(recipe_id)),
+    recipeDetailsSuccess: (payload) =>
+      dispatch(RecipeDetailsActions.recipeDetailsSuccess(payload)),
+    recipeDetailsFailed: (err) =>
+      dispatch(RecipeDetailsActions.recipeDetailsFailure(err)),
   }
 }
 

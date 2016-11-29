@@ -24,17 +24,12 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Reducers ------------- */
 
-// request the data from an api
 export const request = (state, { data }) =>
   state.merge({ fetching: true, data, payload: null })
 
-// successful api lookup
-export const success = (state, action) => {
-  const { payload } = action
-  return state.merge({ fetching: false, error: null, payload })
-}
+export const success = (state, { payload }) =>
+  state.merge({ fetching: false, error: null, payload })
 
-// Something went wrong somewhere.
 export const failure = state =>
   state.merge({ fetching: false, error: true, payload: null })
 
@@ -45,3 +40,18 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.RECIPE_DETAILS_SUCCESS]: success,
   [Types.RECIPE_DETAILS_FAILURE]: failure
 })
+
+
+/* to-do: delete these when not needed anymore
+let testState = {
+  f2f_url:"http://food2fork.com/view/47024",
+  image_url:"http://static.food2fork.com/icedcoffee5766.jpg",
+  ingredients:["my ingredient","1 pound Ground Coffee (good, Rich Roast)","8 quarts Cold Water","Half-and-half (healthy Splash Per Serving)","Sweetened Condensed Milk (2-3 Tablespoons Per Serving)","Note: Can Use Skim Milk, 2% Milk, Whole Milk, Sugar, Artificial Sweeteners, Syrups...adapt To Your Liking!"],
+  publisher:"The Pioneer Woman",
+  publisher_url:"http://thepioneerwoman.com",
+  recipe_id:"47024",
+  social_rank:100,
+  source_url:"http://thepioneerwoman.com/cooking/2011/06/perfect-iced-coffee/",
+  title: "Perfect Iced Coffee",
+}
+*/

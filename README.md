@@ -12,7 +12,10 @@
 
 ## &#8594; Screenshots:
 
-![page_main](readmeImages/v0.1.1/page_main.png) ![page_main](readmeImages/v0.1.1/page_results.png) ![page_main](readmeImages/v0.1.1/page_resultsNotFound.png)
+![page_main](readmeImages/v0.2.0/1.png)
+![page_main](readmeImages/v0.2.0/2.png)
+![page_main](readmeImages/v0.2.0/3.png)
+![page_main](readmeImages/v0.2.0/4.png)
 
 
 

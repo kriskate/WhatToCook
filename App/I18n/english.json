@@ -6,7 +6,7 @@
 
   "recipeResults": "Recipes",
   "recipeDetails": "Recipe Details",
-  "recipeOriginal": "Visit original recipe",
+  "recipeOriginal": "Visit recipe",
 
   "errorFetching": "An error occured while trying to retrieve data. Please try again",
   "fetching": "Retrieving data",

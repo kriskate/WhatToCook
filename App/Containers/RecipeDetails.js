@@ -4,11 +4,14 @@ import Config from 'react-native-config'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { View, Text, Image, ListView } from 'react-native'
+import { ScrollView, View, Text, Image, ListView } from 'react-native'
+import RoundedButton from '../Components/RoundedButton'
 import AlertMessage from '../Components/AlertMessage'
 import styles from './Styles/RecipeDetailsStyle'
 import RecipeDetailsActions from '../Redux/RecipeDetailsRedux'
 import I18n from 'react-native-i18n'
+
+import openURL from '../Services/OpenURL'
 
 
 class RecipeDetails extends React.Component {
@@ -39,12 +42,13 @@ class RecipeDetails extends React.Component {
 
   render () {
     let { recipeDetails, error, fetching, MSG } = this.props
+    //console.log(recipeDetails.ingredients)
     return (
       <View style={styles.container}>
         <AlertMessage title={MSG} show={MSG} />
         {
           !recipeDetails || MSG ? null :
-        <View>
+        <ScrollView>
           <Image
             style={styles.recipeImage}
             source={{uri: recipeDetails.image_url}}
@@ -52,15 +56,20 @@ class RecipeDetails extends React.Component {
           <View>
             <Text style={styles.sectionText}>{recipeDetails.title}</Text>
           </View>
-
+          {recipeDetails.ingredients.map((ingredient, idx) =>
+            <Text style={styles.contentText} key={idx}>{ingredient}</Text>
+          )}
             {/*<ListView
               contentContainerStyle={styles.listContent}
               dataSource={this.state.dataSource}
-              renderRow={(rowData) => <Result data={rowData} getRecipeDetails={this.props.getRecipeDetails} />}
+              renderRow={(rowData) => <Text>{rowData}</Text>}
               enableEmptySections
               pageSize={15}
             />*/}
-        </View>
+          <RoundedButton  onPress={() => openURL(recipeDetails.source_url)}>
+            {I18n.t("recipeOriginal")}
+          </RoundedButton>
+        </ScrollView>
         }
       </View>
     )

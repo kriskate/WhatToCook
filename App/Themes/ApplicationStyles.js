@@ -40,6 +40,12 @@ const ApplicationStyles = {
       textAlign: 'center',
       fontWeight: 'bold'
     },
+    contentText: {
+      color: Colors.snow,
+      marginVertical: Metrics.smallMargin,
+      textAlign: 'left',
+      padding: Metrics.smallMargin,
+    },
     subtitle: {
       color: Colors.snow,
       padding: Metrics.smallMargin,

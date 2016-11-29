@@ -3,18 +3,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, Image } from 'react-native'
 import styles from './Styles/ResultStyle'
-import { Linking } from 'react-native'
-
-
-const openURL = (url) => {
-  Linking.canOpenURL(url).then(supported => {
-      if (supported) {
-        Linking.openURL(url);
-      } else {
-        console.log('Don\'t know how to open URI: ' + url);
-      }
-    });
-}
 
 export default class Result extends React.Component {
   _handlePress (recipe_id) {

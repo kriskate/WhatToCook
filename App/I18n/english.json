@@ -1,25 +1,32 @@
 {
-   "signIn": "Sign In",
-   "logOut": "Log Out",
-   "loginLogoutExampleTitle": "Login/Logout Redux + Sagas Example",
-   "progressiveImageComponent": "Progressive Image Component",
-   "api": "API",
-   "locale": "I18n Locale",
-   "rnVectorIcons": "RN Vector Icons",
-   "loginWithFacebook": "Login with Facebook",
-   "rnAnimatable": "RN Animatable",
-   "igniteGenerated": "Ignite Generate Screens",
-   "forgotPassword": "Forgot Password",
-   "username": "Username",
-   "password": "Password",
-   "cancel": "Cancel",
-   "welcome": "Welcome",
-   "login": "Login",
-   "tempIndicator": "F",
-   "componentExamples": "Component Examples",
-   "usageExamples": "Usage Examples",
-   "apiTesting": "API Testing",
-   "themeSettings": "Theme Settings",
-   "deviceDetails": "Device Details",
-   "noItems": "No Items"
+  /*main*/
+  "whattocook": "What to cook",
+  "selectIngredients": "Select the ingredients you want to use, then:",
+  "findRecipes": "FIND RECIPES",
+
+  "recipeResults": "Recipes",
+  "recipeDetails": "Recipe Details",
+  "recipeOriginal": "Visit original recipe",
+
+
+
+  "profile": "Profile",
+  "rnVectorIcons": "dsadsa",
+  "rnVectorIcons": "dsadsa",
+  "rnVectorIcons": "dsadsa",
+  "rnVectorIcons": "dsadsa",
+
+  "loginWithFacebook": "Login with Facebook",
+  "rnAnimatable": "RN Animatable",
+  "igniteGenerated": "Ignite Generate Screens",
+
+  "cancel": "Cancel",
+  /*login stuff*/
+
+  "signIn": "Sign In",
+  "logOut": "Log Out",
+  "forgotPassword": "Forgot Password",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
 }

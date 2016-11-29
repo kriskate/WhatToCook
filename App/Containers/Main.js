@@ -8,13 +8,14 @@ import RoundedButton from '../Components/RoundedButton'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+
+import Ingredients from './Ingredients'
 import RecipesActions from '../Redux/RecipesRedux'
 
 import styles from './Styles/MainStyle'
 
 import I18n from 'react-native-i18n'
 
-import Ingredients from './Ingredients'
 
 class Main extends React.Component {
 
@@ -22,22 +23,18 @@ class Main extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-
-
         <Ingredients/>
-
-                <View>
-                  <Text style={styles.subtitle}>
-                    Select the ingredients you want to use, then
-                  </Text>
-                </View>
-        <RoundedButton  onPress={this.props.findRecipes}>
-          Find recipes
-        </RoundedButton>
+        <View>
+          <Text style={styles.subtitle}>
+            Select the ingredients you want to use, then
+          </Text>
+          <RoundedButton  onPress={this.props.findRecipes}>
+            Find recipes
+          </RoundedButton>
+        </View>
       </View>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {
@@ -50,6 +47,8 @@ const mapDispatchToProps = (dispatch) => {
     findRecipes: () => {
       dispatch(RecipesActions.recipesRequest(null))
       NavigationActions.recipeResults()
+      // used for easier testing
+      //NavigationActions.recipeDetails()
     }
   }
 }

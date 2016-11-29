@@ -12,6 +12,8 @@ import Main from '../Containers/Main'
 import RecipeResults from '../Containers/RecipeResults'
 import LoginScreen from '../Containers/LoginScreen'
 
+import I18n from 'react-native-i18n'
+
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
 ***************************/
@@ -22,8 +24,8 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-          <Scene initial key='main' component={Main} title='What to cook' renderLeftButton={NavItems.hamburgerButton} />
-          <Scene key='recipeResults' component={RecipeResults} title='Recipes' />
+          <Scene initial key='main' component={Main} title={I18n.t('whattocook')} renderLeftButton={NavItems.hamburgerButton} />
+          <Scene key='recipeResults' component={RecipeResults} title={I18n.t('recipeResults')} />
           {/* title='Device Info' navBar={CustomNavBar} />*/}
           </Scene>
         </Scene>

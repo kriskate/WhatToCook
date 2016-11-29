@@ -1,11 +1,15 @@
 // @flow
 
+import Config from 'react-native-config'
 import React from 'react'
 import { connect } from 'react-redux'
+
 import { View, Text, Image, ListView } from 'react-native'
+import AlertMessage from '../Components/AlertMessage'
 import styles from './Styles/RecipeDetailsStyle'
-import Config from 'react-native-config'
 import RecipeDetailsActions from '../Redux/RecipeDetailsRedux'
+import I18n from 'react-native-i18n'
+
 
 class RecipeDetails extends React.Component {
   componentWillMount () {
@@ -34,26 +38,30 @@ class RecipeDetails extends React.Component {
   }
 
   render () {
-    let { recipeDetails, fetching } = this.props
+    let { recipeDetails, error, fetching, MSG } = this.props
     return (
-      fetching || !recipeDetails ? <View style={styles.container}/> :
       <View style={styles.container}>
-        <AlertMessage title={msg} show={msg} />
-        <Image
-          style={styles.recipeImage}
-          source={{uri: recipeDetails.image_url}}
-        />
+        <AlertMessage title={MSG} show={MSG} />
+        {
+          !recipeDetails || MSG ? null :
         <View>
-          <Text style={styles.sectionText}>{recipeDetails.title}</Text>
-        </View>
+          <Image
+            style={styles.recipeImage}
+            source={{uri: recipeDetails.image_url}}
+          />
+          <View>
+            <Text style={styles.sectionText}>{recipeDetails.title}</Text>
+          </View>
 
-          {/*<ListView
-            contentContainerStyle={styles.listContent}
-            dataSource={this.state.dataSource}
-            renderRow={(rowData) => <Result data={rowData} getRecipeDetails={this.props.getRecipeDetails} />}
-            enableEmptySections
-            pageSize={15}
-          />*/}
+            {/*<ListView
+              contentContainerStyle={styles.listContent}
+              dataSource={this.state.dataSource}
+              renderRow={(rowData) => <Result data={rowData} getRecipeDetails={this.props.getRecipeDetails} />}
+              enableEmptySections
+              pageSize={15}
+            />*/}
+        </View>
+        }
       </View>
     )
   }
@@ -62,7 +70,10 @@ class RecipeDetails extends React.Component {
 
 const mapStateToProps = (state) => {
   let { fetching, error, payload, data } = state.recipeDetails
+  let MSG = fetching ? I18n.t("fetching") : ""
+      MSG = error ? I18n.t("errorFetching") : ""
   return {
+    MSG,
     recipeDetails: (payload && payload.recipe) ? payload.recipe : null,
     fetching, error, payload,
     recipeData: data,

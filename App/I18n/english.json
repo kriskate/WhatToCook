@@ -8,7 +8,8 @@
   "recipeDetails": "Recipe Details",
   "recipeOriginal": "Visit original recipe",
 
-
+  "errorFetching": "An error occured while trying to retrieve data. Please try again",
+  "fetching": "Retrieving data",
 
   "profile": "Profile",
   "rnVectorIcons": "dsadsa",

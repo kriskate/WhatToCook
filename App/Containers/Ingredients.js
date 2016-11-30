@@ -45,7 +45,7 @@ class Ingredients extends React.Component {
 
   _renderRow (rowData) {
     return (
-      <TouchableOpacity style={rowData.isSelected ? styles.row_selected : styles.row}
+      <TouchableOpacity style={rowData.isSelected ? styles.ingredient_selected : styles.ingredient}
       onPress={() => this.props.ingredientSelected(rowData.ingredient)}>
         <Text style={styles.boldLabel}>{rowData.ingredient}</Text>
       </TouchableOpacity>
@@ -54,15 +54,13 @@ class Ingredients extends React.Component {
 
   render () {
     return (
-      <View style={styles.container}>
-        <ListView
-          contentContainerStyle={styles.listContent}
-          dataSource={this.state.dataSource}
-          renderRow={this._renderRow.bind(this)}
-          enableEmptySections
-          pageSize={15}
-        />
-      </View>
+      <ListView
+        contentContainerStyle={styles.listContent}
+        dataSource={this.state.dataSource}
+        renderRow={this._renderRow.bind(this)}
+        enableEmptySections
+        pageSize={30}
+      />
     )
   }
 }

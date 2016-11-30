@@ -5,23 +5,22 @@ import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-  row: {
-    width: 80,
-    height: 20,
+
+  ingredient: {
+    width: 95,
+    height: 25,
     justifyContent: 'center',
     alignItems: 'center',
     margin: Metrics.baseMargin,
     backgroundColor: Colors.ember,
-    borderRadius: Metrics.smallMargin
   },
-  row_selected: {
-    width: 80,
-    height: 20,
+  ingredient_selected: {
+    width: 95,
+    height: 25,
     justifyContent: 'center',
     alignItems: 'center',
     margin: Metrics.baseMargin,
     backgroundColor: Colors.transparent,
-    borderRadius: Metrics.smallMargin
   },
   boldLabel: {
     fontWeight: 'bold',
@@ -36,8 +35,12 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   listContent: {
-    justifyContent: 'space-around',
+    padding: Metrics.smallMargin,
+    paddingTop: Metrics.navBarHeight,
+    backgroundColor: Colors.panther,
+
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   }
 })

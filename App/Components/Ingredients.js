@@ -2,14 +2,13 @@
 
 import React, { PropTypes } from 'react'
 import { TouchableOpacity, View, Text, ListView } from 'react-native'
-import { connect } from 'react-redux'
 import RecipesActions from '../Redux/RecipesRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
 import styles from './Styles/IngredientsStyle'
 import I18n from 'react-native-i18n'
 
-class Ingredients extends React.Component {
+export default class Ingredients extends React.Component {
 
   state: {
     dataSource: Object
@@ -24,10 +23,10 @@ class Ingredients extends React.Component {
     }
   }
 
-  _generateData (selected) {
+  _generateData (ingredients_selected) {
     let dataObjects = this.arr_ingredients.map((ingredient) => {
       return {
-        ingredient, isSelected: selected ? selected.includes(ingredient) : false
+        ingredient, isSelected: ingredients_selected ? ingredients_selected.includes(ingredient) : false
       }
     })
 
@@ -38,8 +37,8 @@ class Ingredients extends React.Component {
     return ds.cloneWithRows(dataObjects)
   }
   componentWillReceiveProps (newProps) {
-    if (newProps.selected) {
-      this.setState({dataSource: this._generateData(newProps.selected)})
+    if (newProps.ingredients_selected) {
+      this.setState({dataSource: this._generateData(newProps.ingredients_selected)})
     }
   }
 
@@ -64,17 +63,3 @@ class Ingredients extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    selected: state.recipes.ingredients_selected,
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    ingredientSelected: (ingredient) => dispatch(RecipesActions.ingredientsSelected(ingredient))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Ingredients)

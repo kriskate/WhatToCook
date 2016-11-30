@@ -6,11 +6,8 @@ import { connect } from 'react-redux'
 import RecipesActions from '../Redux/RecipesRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
-// For empty lists
-import AlertMessage from '../Components/AlertMessage'
-
-// Styles
 import styles from './Styles/IngredientsStyle'
+import I18n from 'react-native-i18n'
 
 class Ingredients extends React.Component {
 
@@ -21,16 +18,14 @@ class Ingredients extends React.Component {
   constructor (props) {
     super(props)
 
+    this.arr_ingredients = I18n.t("ingredients").split(',').sort()
     this.state = {
       dataSource: this._generateData()
     }
   }
 
   _generateData (selected) {
-    let arr_ingredients =
-      'egg,sugar,salt,lettuce,onion,carrot,pepper,broccoli,cauliflower,cucumber,tomato,chicken,pork,fish,lamb,turkey,avocado,corn,parsnip,mushrooms,cabbage,chili,garlic,flour,pasta,courget,zucchini,sprouts,butter,peas,beans,lentils,chickpeas,celery,aubergine,potato,rice,couscous,buttermilk,cream,milk,spinach'.split(',').sort()
-
-    let dataObjects = arr_ingredients.map((ingredient) => {
+    let dataObjects = this.arr_ingredients.map((ingredient) => {
       return {
         ingredient, isSelected: selected ? selected.includes(ingredient) : false
       }

@@ -1,4 +1,6 @@
 {
+
+  "ingredients":  "egg,sugar,salt,lettuce,onion,carrot,pepper,broccoli,cauliflower,cucumber,tomato,chicken,pork,fish,lamb,turkey,avocado,corn,parsnip,mushrooms,cabbage,chili,garlic,flour,pasta,courget,zucchini,sprouts,butter,peas,beans,lentils,chickpeas,celery,aubergine,potato,rice,couscous,buttermilk,cream,milk,spinach",
   /*main*/
   "whattocook": "What to cook",
   "selectIngredients": "Select the ingredients you want to use, then:",

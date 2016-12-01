@@ -18,11 +18,16 @@ export default StyleSheet.create({
   card: {
     width: 160,
     height: 150,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     margin: Metrics.baseMargin,
     backgroundColor: Colors.ricePaper,
-    borderRadius: Metrics.smallMargin
+    /*borderRadius: Metrics.smallMargin*/
+  },
+  image: {
+    width: 150,
+    height: 120,
+    marginBottom: Metrics.smallMargin,
   },
   boldLabel: {
     fontWeight: 'bold',

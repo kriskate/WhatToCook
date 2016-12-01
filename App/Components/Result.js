@@ -16,7 +16,7 @@ export default class Result extends React.Component {
       <TouchableOpacity style={styles.card} onPress={() => this._handlePress(recipe_id)}>
         <Text style={styles.boldLabel}>{title}</Text>
         <Image
-          style={{width: 150, height: 120}}
+          style={styles.image}
           source={{uri: image_url}}
       />
       </TouchableOpacity>

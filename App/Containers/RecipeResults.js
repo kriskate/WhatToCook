@@ -9,11 +9,8 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 import Config from 'react-native-config'
 
 import Result from '../Components/Result'
-
-// import { Actions as NavigationActions } from 'react-native-router-flux'
-
-// For empty lists
 import AlertMessage from '../Components/AlertMessage'
+import { openURL } from '../Services/URL'
 
 // Styles
 import styles from './Styles/RecipeResultsStyle'
@@ -81,7 +78,7 @@ class RecipeResults extends React.Component {
               enableEmptySections
               pageSize={15}
             />
-            <Text>Powered By Food2Fork.com</Text>
+            <Text style={styles.watermark} onPress={() => openURL("http://food2fork.com")}>Powered By Food2Fork.com</Text>
           </View>
         }
       </View>

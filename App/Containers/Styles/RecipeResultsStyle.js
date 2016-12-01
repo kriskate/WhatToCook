@@ -5,8 +5,9 @@ import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
+
   container: {
-    flex: 1,
+    flex: 2,
     marginTop: Metrics.navBarHeight,
     backgroundColor: Colors.background
   },
@@ -24,8 +25,14 @@ export default StyleSheet.create({
     textAlign: 'left'
   },
   listContent: {
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     flexDirection: 'row',
     flexWrap: 'wrap'
-  }
+  },
+
+  watermark:{
+    color: Colors.cloud,
+    textAlign: "right",
+    fontSize: 10,
+  },
 })

@@ -11,7 +11,7 @@ import styles from './Styles/RecipeDetailsStyle'
 import RecipeDetailsActions from '../Redux/RecipeDetailsRedux'
 import I18n from 'react-native-i18n'
 
-import openURL from '../Services/OpenURL'
+import { openURL } from '../Services/URL'
 
 
 class RecipeDetails extends React.Component {

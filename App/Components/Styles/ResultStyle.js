@@ -8,6 +8,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingTop: Metrics.titlePadding
   },
+
   row: {
     flex: 1,
     backgroundColor: Colors.ricePaper,
@@ -15,27 +16,27 @@ export default StyleSheet.create({
     marginHorizontal: Metrics.smallMargin,
     justifyContent: 'center',
   },
+
+
   card: {
-    width: 160,
-    height: 150,
+    width: Metrics.screenWidth/2 - Metrics.smallMargin*1.5,
+    height: 180,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    margin: Metrics.baseMargin,
-    backgroundColor: Colors.ricePaper,
-    /*borderRadius: Metrics.smallMargin*/
+    marginTop: Metrics.smallMargin*2,
+    marginLeft: Metrics.smallMargin,
+    backgroundColor: Colors.silver,
   },
   image: {
-    width: 150,
-    height: 120,
-    marginBottom: Metrics.smallMargin,
+    width: Metrics.screenWidth/2 - Metrics.smallMargin*1.5,
+    height: 155,
   },
+
   boldLabel: {
-    fontWeight: 'bold',
     alignSelf: 'flex-start',
     color: Colors.panther,
     textAlign: 'left',
-    marginLeft: Metrics.smallMargin,
-    marginBottom: Metrics.smallMargin
+    margin: Metrics.smallMargin,
   },
   label: {
     marginLeft: Metrics.baseMargin,

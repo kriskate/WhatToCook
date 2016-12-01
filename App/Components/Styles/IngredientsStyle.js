@@ -12,7 +12,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: Metrics.baseMargin,
-    backgroundColor: Colors.ember,
+    backgroundColor: Colors.bloodOrange,
   },
   ingredient_selected: {
     width: 95,

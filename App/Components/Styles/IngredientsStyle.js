@@ -16,16 +16,18 @@ labelBase = {
 }
 export default StyleSheet.create({
   ingredient: { ...ingredientBase,
-    backgroundColor: Colors.secondary3,
+    backgroundColor: Colors.silver,
+    borderWidth: 1,
+    borderColor: Colors.faded,
   },
   ingredient_s: { ...ingredientBase,
-    backgroundColor: Colors.transparent,
+    backgroundColor: Colors.secondary3,
   },
   label: { ...labelBase,
-    color: Colors.snow,
+    color: Colors.windowTint,
   },
   label_s: { ...labelBase,
-    color: Colors.windowTint,
+    color: Colors.silver,
   },
   listContent: {
     paddingTop: Metrics.navBarHeight,

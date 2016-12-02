@@ -17,7 +17,9 @@ import styles from './Styles/RecipeResultsStyle'
 
 const MSG_ERROR = 'An error occured while trying to retrieve the recipe. Please try again later',
       MSG_RETRIEVING = 'Retrieving recipes. Please wait',
-      MSG_NORECIPES = 'No recipes found for the selected ingredients'
+      MSG_NORECIPES = `No recipes found for the selected ingredients
+      
+      try deselecting a few`
 
 class RecipeResults extends React.Component {
 

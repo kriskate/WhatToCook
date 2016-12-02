@@ -25,7 +25,7 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-          <Scene initial key='main' component={Main} title={I18n.t('whattocook')} renderLeftButton={NavItems.hamburgerButton} />
+          <Scene initial key='main' component={Main} title={I18n.t('whattocook')} navigationBarStyle={Styles.navBar} renderLeftButton={NavItems.hamburgerButton} />
           <Scene key='recipeResults' component={RecipeResults} title={I18n.t('recipeResults')} />
           <Scene key='recipeDetails' component={RecipeDetails} title={I18n.t('recipeDetails')} />
 

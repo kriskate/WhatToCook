@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -24,6 +24,7 @@ export default StyleSheet.create({
     color: Colors.windowTint,
     textAlign: 'left'
   },
+
   listContent: {
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -31,8 +32,12 @@ export default StyleSheet.create({
   },
 
   watermark:{
-    color: Colors.cloud,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+
+    color: Colors.charcoal,
     textAlign: "right",
-    fontSize: 10,
+    fontSize: Fonts.size.small,
   },
 })

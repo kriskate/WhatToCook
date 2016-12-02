@@ -18,19 +18,16 @@ import I18n from 'react-native-i18n'
 
 
 class Main extends React.Component {
-
   render () {
     let { ingredientSelected, ingredients_selected } = this.props
 
     return (
       <View style={styles.container}>
 
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-
         <Ingredients ingredientSelected={ingredientSelected} ingredients_selected={ingredients_selected} />
 
-        <View>
-          <Text style={styles.subtitle}>
+        <View style={styles.findContainer}>
+          <Text style={styles.text}>
             Select the ingredients you want to use, then
           </Text>
           <RoundedButton  onPress={this.props.findRecipes}>

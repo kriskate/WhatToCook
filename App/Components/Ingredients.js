@@ -43,10 +43,12 @@ export default class Ingredients extends React.Component {
   }
 
   _renderRow (rowData) {
+    let { isSelected, ingredient } = rowData
+    let { ingredientSelected } = this.props
     return (
-      <TouchableOpacity style={rowData.isSelected ? styles.ingredient_selected : styles.ingredient}
-      onPress={() => this.props.ingredientSelected(rowData.ingredient)}>
-        <Text style={styles.boldLabel}>{rowData.ingredient}</Text>
+      <TouchableOpacity style={isSelected ? styles.ingredient_s : styles.ingredient}
+      onPress={() => ingredientSelected(ingredient)}>
+        <Text style={isSelected ? styles.label_s : styles.label}>{ingredient}</Text>
       </TouchableOpacity>
     )
   }

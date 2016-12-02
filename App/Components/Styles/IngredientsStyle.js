@@ -3,41 +3,33 @@
 import { StyleSheet } from 'react-native'
 import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
+let ingredientBase = {
+  width: 95,
+  height: 25,
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: Metrics.baseMargin,
+},
+labelBase = {
+  fontWeight: 'bold',
+  textAlign: 'center',
+}
 export default StyleSheet.create({
-  ...ApplicationStyles.screen,
-
-  ingredient: {
-    width: 95,
-    height: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: Metrics.baseMargin,
-    backgroundColor: Colors.bloodOrange,
+  ingredient: { ...ingredientBase,
+    backgroundColor: Colors.secondary3,
   },
-  ingredient_selected: {
-    width: 95,
-    height: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: Metrics.baseMargin,
+  ingredient_s: { ...ingredientBase,
     backgroundColor: Colors.transparent,
   },
-  boldLabel: {
-    fontWeight: 'bold',
-    alignSelf: 'center',
+  label: { ...labelBase,
     color: Colors.snow,
-    textAlign: 'center',
-    marginBottom: Metrics.smallMargin
   },
-  label: {
-    alignSelf: 'center',
-    color: Colors.snow,
-    textAlign: 'center'
+  label_s: { ...labelBase,
+    color: Colors.windowTint,
   },
   listContent: {
-    padding: Metrics.smallMargin,
     paddingTop: Metrics.navBarHeight,
-    backgroundColor: Colors.panther,
+    padding: Metrics.smallMargin,
 
     justifyContent: 'space-between',
     flexDirection: 'row',

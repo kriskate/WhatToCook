@@ -6,6 +6,8 @@
   "selectIngredients": "Select the ingredients you want to use, then:",
   "findRecipes": "FIND RECIPES",
 
+  "ingredientsSection": "Ingredients",
+
   "recipeResults": "Recipes",
   "recipeDetails": "Recipe Details",
   "recipeOriginal": "Visit recipe",

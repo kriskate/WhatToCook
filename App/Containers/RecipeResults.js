@@ -66,7 +66,7 @@ class RecipeResults extends React.Component {
     let msg = this._checkData()
 
     return (
-      <View style={styles.container}>
+      <View style={styles.mainContainer}>
         <AlertMessage title={msg} show={msg} />
         {
         this.props.isError || this.props.fetching || !this.state || !this.state.dataSource ? null :
@@ -76,11 +76,11 @@ class RecipeResults extends React.Component {
               dataSource={this.state.dataSource}
               renderRow={(rowData) => <Result data={rowData} getRecipeDetails={this.props.getRecipeDetails} />}
               enableEmptySections
-              pageSize={15}
+              pageSize={30}
             />
-            <Text style={styles.watermark} onPress={() => openURL("http://food2fork.com")}>Powered By Food2Fork.com</Text>
           </View>
         }
+        <Text style={styles.watermark} onPress={() => openURL("http://food2fork.com")}>Powered By Food2Fork.com</Text>
       </View>
     )
   }

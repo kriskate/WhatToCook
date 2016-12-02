@@ -3,7 +3,10 @@
 import { StyleSheet } from 'react-native'
 import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
-export default StyleSheet.create({
+
+let cardSize = Metrics.screenWidth/2 - Metrics.smallMargin*1.5
+export default {
+  cardSize: {height:cardSize},
   container: {
     flex: 1,
     paddingTop: Metrics.titlePadding
@@ -19,28 +22,35 @@ export default StyleSheet.create({
 
 
   card: {
-    width: Metrics.screenWidth/2 - Metrics.smallMargin*1.5,
-    height: 180,
+    width: cardSize,
+    height: cardSize,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: Metrics.smallMargin*2,
+    marginTop: Metrics.smallMargin,
+    marginBottom: Metrics.smallMargin,
     marginLeft: Metrics.smallMargin,
     backgroundColor: Colors.silver,
+    borderWidth: 1,
+    borderColor: Colors.secondary1,
+  },
+  cardContent: {
+    width: cardSize - 2,
+    height: cardSize - 2,
   },
   image: {
-    width: Metrics.screenWidth/2 - Metrics.smallMargin*1.5,
-    height: 155,
+    width: cardSize - 2,
+    height: cardSize - 2 - Metrics.smallMargin*2, /* adjusted in Result.js */
   },
 
-  boldLabel: {
+  title: {
     alignSelf: 'flex-start',
-    color: Colors.panther,
     textAlign: 'left',
     margin: Metrics.smallMargin,
+    color: Colors.panther,
   },
   label: {
     marginLeft: Metrics.baseMargin,
     color: Colors.windowTint,
     textAlign: 'left'
   },
-})
+}

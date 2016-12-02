@@ -42,7 +42,7 @@ class RecipeDetails extends React.Component {
 
   render () {
     let { recipeDetails, error, fetching, MSG } = this.props
-    //console.log(recipeDetails.ingredients)
+
     return (
       <View style={styles.container}>
         <AlertMessage title={MSG} show={MSG} />
@@ -54,11 +54,14 @@ class RecipeDetails extends React.Component {
             source={{uri: recipeDetails.image_url}}
           />
           <View>
-            <Text style={styles.sectionText}>{recipeDetails.title}</Text>
+            <Text style={styles.title}>{recipeDetails.title}</Text>
           </View>
-          {recipeDetails.ingredients.map((ingredient, idx) =>
-            <Text style={styles.contentText} key={idx}>{ingredient}</Text>
-          )}
+          <View style={styles.bordered}>
+            <Text style={styles.contentTitle}>{I18n.t('ingredientsSection')}:</Text>
+            {recipeDetails.ingredients.map((ingredient, idx) =>
+              <Text style={styles.contentText} key={idx}>{ingredient}</Text>
+            )}
+          </View>
             {/*<ListView
               contentContainerStyle={styles.listContent}
               dataSource={this.state.dataSource}

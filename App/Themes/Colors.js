@@ -19,7 +19,17 @@ const colors = {
   snow: 'white',
   ember: 'rgba(164, 0, 48, 0.5)',
   fire: '#e73536',
-  drawer: 'rgba(30, 30, 29, 0.95)'
+  drawer: 'rgba(30, 30, 29, 0.95)',
+
+  /* specific - Material Design */
+  // light green
+  main1: '#689F38',
+  main2: '#558B2F',
+  main3: '#33691E',
+  // orange
+  secondary1: '#FFB74D',
+  secondary2: '#FFA726',
+  secondary3: '#FF9800',
 }
 
 export default colors

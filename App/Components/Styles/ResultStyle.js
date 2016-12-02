@@ -28,7 +28,7 @@ export default {
     alignItems: 'center',
     marginTop: Metrics.smallMargin,
     marginBottom: Metrics.smallMargin,
-    marginLeft: Metrics.smallMargin,
+    //marginLeft: Metrics.smallMargin,
     backgroundColor: Colors.silver,
     borderWidth: 1,
     borderColor: Colors.secondary1,

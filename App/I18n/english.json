@@ -16,10 +16,6 @@
   "fetching": "Retrieving data",
 
   "profile": "Profile",
-  "rnVectorIcons": "dsadsa",
-  "rnVectorIcons": "dsadsa",
-  "rnVectorIcons": "dsadsa",
-  "rnVectorIcons": "dsadsa",
 
   "loginWithFacebook": "Login with Facebook",
   "rnAnimatable": "RN Animatable",
@@ -34,4 +30,19 @@
   "username": "Username",
   "password": "Password",
   "login": "Login",
+
+  "About": "About",
+
+  "appGithub": "Github:",
+  "appGithubRepo": "https://github.com/kriskate/WhatToCook",
+
+  "techsused": `
+  React - https://facebook.github.io/react/
+  React Native - https://facebook.github.io/react-native/
+  Redux - http://redux.js.org/
+  Ignite - https://github.com/infinitered/ignite
+  App icon - http://flaticon.com/
+  App icon resize pack - http://makeappicon.com/
+  Food API - http://food2fork.com
+  `,
 }

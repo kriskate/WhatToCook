@@ -9,6 +9,7 @@ import CustomNavBar from '../Components/CustomNavBar'
 
 // screens identified by the router
 import Main from '../Containers/Main'
+import About from '../Containers/About'
 import RecipeResults from '../Containers/RecipeResults'
 import RecipeDetails from '../Containers/RecipeDetails'
 import LoginScreen from '../Containers/LoginScreen'
@@ -28,6 +29,8 @@ class NavigationRouter extends Component {
           <Scene initial key='main' component={Main} title={I18n.t('whattocook')} navigationBarStyle={Styles.navBar} renderLeftButton={NavItems.hamburgerButton} />
           <Scene key='recipeResults' component={RecipeResults} title={I18n.t('recipeResults')} />
           <Scene key='recipeDetails' component={RecipeDetails} title={I18n.t('recipeDetails')} />
+
+          <Scene key='about' component={About} title={I18n.t('About')} />
 
           {/* title='Device Info' navBar={CustomNavBar} />*/}
           </Scene>

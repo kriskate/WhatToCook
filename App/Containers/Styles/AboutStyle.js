@@ -14,7 +14,10 @@ export default StyleSheet.create({
   text: {
     marginHorizontal: Metrics.baseMargin,
     color: Colors.panther,
-    fontSize: 13,
     fontWeight: "bold",
+  },
+  version: {
+    marginTop: Metrics.doubleBaseMargin,
+    marginHorizontal: Metrics.baseMargin,
   }
 })

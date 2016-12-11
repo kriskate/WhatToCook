@@ -27,10 +27,11 @@ class About extends React.Component {
         <KeyboardAvoidingView behavior='position'>
           <Text style={styles.mainText}>Technologies used:</Text>
           {I18n.t("techsused").split('\n').map((tech, idx) =>
-            (tech.trim() == "" ? null : <TouchableOpacity onPress={() => openURL(tech.split('-')[1].trim())}><Text style={styles.text} key={idx}>  ○{tech}</Text></TouchableOpacity>)
+            (tech.trim() == "" ? null : <TouchableOpacity key={idx} onPress={() => openURL(tech.split('-')[1].trim())}><Text style={styles.text}>  ○ {tech.split('-')[0].trim()}</Text></TouchableOpacity>)
           )}
           <TouchableOpacity onPress={() => openURL(I18n.t('appGithubRepo'))}><Icon name='github' size={Metrics.icons.tiny}  style={styles.mainText}> - {I18n.t("appGithubRepo")}</Icon></TouchableOpacity>
         </KeyboardAvoidingView>
+        <Text style={styles.version}>{I18n.t("appversion").replace("$v", require('../../package.json').version)}</Text>
       </ScrollView>
     )
   }

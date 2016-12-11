@@ -45,4 +45,6 @@
   App icon resize pack - http://makeappicon.com/
   Food API - http://food2fork.com
   `,
+
+  "appversion": "Release version: $v",
 }
